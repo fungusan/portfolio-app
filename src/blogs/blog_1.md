@@ -1,5 +1,5 @@
 ---
-imagePath: "../src/assets/blog_images/blog_1/main.jpg"
+imagePath: "blog_images/blog_1/main.jpg"
 imageName: "Blog 1 - Calculus"
 title: "The Correct Attitude Toward Maths"
 date: "Aug 21, 2025"
@@ -16,7 +16,7 @@ It must be agreed that some forms of mathematical intuition are naturally implan
 
 I know this won't convince you, so let's consider another example: trigonometric functions. This topic is perhaps the scariest among others in form 2 maths, since it introduces a weird notation that students never see before. But its idea is simple:
 
-![Blog 1 - Triangle](../src/assets/blog_images/blog_1/triangle.png)
+![Blog 1 - Triangle](blog_images/blog_1/triangle.png)
 
 When the side lengths $a$ and $b$ of the triangle changes, the angle $\theta$ they form changes as well. Notice that the value of $\theta$ does **not** depend on the exact lengths, but the relative lengths of $a$ and $b$ (i.e. a 3-4-5 triangle will have exactly the same angle as 6-8-10 triangle). Therefore, we know that $\theta$ must hold some relationship to the **ratio** of $a$ and $b$. This motivates as to define:
 

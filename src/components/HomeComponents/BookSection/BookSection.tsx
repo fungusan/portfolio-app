@@ -52,7 +52,7 @@ const BookSection = () => {
                 </div>
 
                 {/* Sample Button */}
-                <a href="documents/bookSample.pdf" target="_blank" className="md:flex justify-center items-center hidden">
+                <a href="/documents/bookSample.pdf" target="_blank" className="md:flex justify-center items-center hidden">
                     <div className="w-full py-3
                         text-base flex items-center justify-center transition-color duration-100
                         rounded-xl bg-[#849F5D] text-white hover:bg-[#758c54] cursor-pointer"> Get Sample Pages </div>

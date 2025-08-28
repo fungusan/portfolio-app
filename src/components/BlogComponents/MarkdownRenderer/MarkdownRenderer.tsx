@@ -1,6 +1,6 @@
 import React from 'react';
 import 'katex/dist/katex.min.css'; // For math rendering
-import 'highlight.js/styles/github-dark-dimmed.css'; // For syntax highlighting
+import 'highlight.js/styles/github.min.css'; // For syntax highlighting
 
 interface MarkdownRendererProps {
     content: string;

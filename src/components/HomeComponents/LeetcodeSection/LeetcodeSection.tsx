@@ -30,7 +30,7 @@ const LeetcodeSection = () => {
                 
                 {/* Leetcode Data */}
                 <div className="md:col-start-2 md:col-end-2 md:ml-10 flex flex-col justify-center items-start space-y-2">
-                    <h1 className="md:text-6xl text-5xl text-gray-900 font-light"> 414 </h1>
+                    <h1 className="md:text-6xl text-5xl text-gray-900 font-light"> 419 </h1>
                     <p className="md:text-2xl text-xl text-gray-700"> Leetcode problems solved </p>
 
                     {/* Difficulty Level */}
@@ -43,11 +43,11 @@ const LeetcodeSection = () => {
                     {/* React RC */}
                     <div className="md:flex flex-col w-full hidden">
                         <h1 className="text-2xl md:mt-10 my-10"> Recent AC </h1>
-                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> Maximum 69 Number </div>
-                        <div className="flex justify-start items-center h-20 bg-gray-100 px-4 rounded-lg"> Power of Two </div>
-                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> Path Sum </div>
-                        <div className="flex justify-start items-center h-20 bg-gray-100 px-4 rounded-lg"> K Closest Points to Origin</div>
-                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> Fruits Into Baskets II </div>
+                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> Soup Servings </div>
+                        <div className="flex justify-start items-center h-20 bg-gray-100 px-4 rounded-lg"> Maximum 69 Number </div>
+                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> Power of Two </div>
+                        <div className="flex justify-start items-center h-20 bg-gray-100 px-4 rounded-lg"> Path Sum </div>
+                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> K Closest Points to Origin</div>
                     </div>
 
                     {/* Profile Button sm */}

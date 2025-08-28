@@ -13,7 +13,7 @@ const Blogs = () => {
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
     const dropdownTags = [
-        'Maths', 'Computer', 'Philosophy'
+        'Maths', 'Algorithm', 'Philosophy'
     ];
 
     const blogs = getBlogData();

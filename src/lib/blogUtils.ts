@@ -8,7 +8,7 @@ import rehypeKatex from 'rehype-katex';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 
-const blogModules = import.meta.glob('/src/blogs/*.md', { as: 'raw', eager: true });
+const blogModules = import.meta.glob('/src/blogs/*.md', { query: '?raw', import: 'default', eager: true });
 
 console.log('Globbed blog files:', Object.keys(blogModules));
 

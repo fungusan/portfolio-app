@@ -1,7 +1,7 @@
 ---
 imagePath: "/blog_images/blog_1/main.jpg"
 imageName: "Blog 1 - Calculus"
-title: "The Correct Attitude Toward Maths"
+title: "The Correct Attitude Towards Maths"
 date: "Aug 21, 2025"
 excerpt: "Students fail at maths not because they are talentless, but the incorrect attitude towards it."
 tags: ["Maths"]

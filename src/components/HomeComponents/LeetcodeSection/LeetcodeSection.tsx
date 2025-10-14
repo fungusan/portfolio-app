@@ -30,7 +30,7 @@ const LeetcodeSection = () => {
                 
                 {/* Leetcode Data */}
                 <div className="md:col-start-2 md:col-end-2 md:ml-10 flex flex-col justify-center items-start space-y-2">
-                    <h1 className="md:text-6xl text-5xl text-gray-900 font-light"> 419 </h1>
+                    <h1 className="md:text-6xl text-5xl text-gray-900 font-light"> 431 </h1>
                     <p className="md:text-2xl text-xl text-gray-700"> Leetcode problems solved </p>
 
                     {/* Difficulty Level */}

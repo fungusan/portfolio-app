@@ -6,22 +6,28 @@ const NavBar = () => {
 
     return (
         <>
-            <nav className="w-full flex justify-between items-center md:py-4 py-2 fixed top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200/50">
-                <div className="flex items-center pl-6">
+            <nav className="w-full flex justify-between items-center md:py-5 py-3 fixed top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200/50">
+                <div className="flex items-center pl-8">
                     <span className="text-lg font-light tracking-tight hidden">
                         <span className="font-medium">Portfolio</span>
                     </span>
 
-                    {/* Yan Yan Icon */}
-                    <div className="bg-[url('assets/home_page_images/yan_yan_icon.png')] md:size-14 size-12 bg-left rounded-full bg-cover"></div>
+                    {/* Yan Yan Icon (Legacy)
+                    <div className="bg-[url('assets/home_page_images/yan_yan_icon.png')] md:size-14 size-12 bg-left rounded-full bg-cover"></div> */}
+
+                    {/* Brand Icon */}
+                    <div className="flex items-center gap-3">
+                        <div className="bg-[#849F5D]/90 size-4"></div>
+                        <p className="font-serif text-2xl font-thin"> Fungusan </p>
+                    </div>
                 </div>
 
                 <div className="flex items-center gap-8 relative pr-6">
                     {/* Links Section */}
                     <div className="hidden md:flex gap-8">
-                        <a href="/" className="text-sm font-light py-2 hover:text-gray-500 transition-colors duration-200">Home</a>
-                        <a href="/blogs" className="text-sm font-light py-2 hover:text-gray-500 transition-colors duration-200">Blogs</a>
-                        <a href="/contact" className="text-sm font-light px-4 py-2 rounded-lg bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors duration-200">
+                        <a href="/" className="text-sm lg:text-base font-light py-2 hover:text-gray-500 transition-colors duration-200">Home</a>
+                        <a href="/blogs" className="text-sm lg:text-base font-light py-2 hover:text-gray-500 transition-colors duration-200">Blogs</a>
+                        <a href="/contact" className="text-sm lg:text-base font-light px-4 py-2 rounded-lg bg-transparent border border-gray-300 hover:bg-gray-100 transition-colors duration-200">
                             Contact
                         </a>
                     </div>

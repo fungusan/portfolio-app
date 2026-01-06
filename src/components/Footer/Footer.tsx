@@ -56,7 +56,7 @@ const Footer = () => {
                 <a href="/contact" className="md:text-sm text-xs font-light hover:text-gray-500 transition-colors duration-200">Contact</a>
             </div>
 
-            <p className="md:text-sm text-xs font-light text-gray-900"> © Copyright 2025. Designed by Fungusan. Credit to Flaticon. </p>
+            <p className="md:text-sm text-xs font-light text-gray-900"> © Copyright 2026. Designed by Fungusan. </p>
         </footer>
     )
 }

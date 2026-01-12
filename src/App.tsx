@@ -13,7 +13,7 @@ const routes = (
       <Route path='/blogs' element={<Blogs />} />
       <Route path='/blogs/:slug' element={<BlogPost />} />
       <Route path='/contact' element={<Contact />} />
-      <Route path='/*' element={<ErrorPage errorCode="404" message="Page not found" />} />
+      <Route path='/*' element={<ErrorPage errorCode="404" message="PAGE NOT FOUND..." />} />
     </Routes>
   </Router>
 )

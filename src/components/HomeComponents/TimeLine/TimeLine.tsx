@@ -4,7 +4,7 @@ import turing_machine_image from '@assets/home_page_images/turing_machine_image.
 const TimeLine = () => {
   return (
     <>
-      <section className="grid md:grid-cols-12 grid-cols-10 py-5">
+      <section className="grid md:grid-cols-12 grid-cols-10 py-5 px-2">
         {/* Left Time Line Items */}
         <div className="md:col-start-1 md:col-end-6 col-start-2 col-end-9 flex flex-col justify-start items-end space-y-10">
           <TimeLineItem 

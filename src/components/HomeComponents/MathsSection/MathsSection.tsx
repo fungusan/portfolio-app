@@ -51,12 +51,12 @@ const MathsSection = () => {
                     <h2 className="lg:text-3xl md:text-2xl text-xl font-light text-gray-700"> The Story of a Maths Lover </h2>
 
                     <p className="lg:text-base md:text-sm text-xs tracking-[1px] md:leading-8 leading-6 md:mt-16 mt-8 md:pr-20 text-gray-700"> 
-                        I love mathematics, although not being very proficient in it. 
-                        I read mathematics text and watch mathematics video while I am in free time. 
+                        Although not being proficient, I often found myself having a deep love to mathematics.
+                        During free time, I read mathematics text and watch mathematics videos.
                         I believe mathematics is the key to understand the universe, revealing the underlying structure of nature. </p>
 
                     <p className="lg:text-base md:inline hidden text-sm tracking-[1px] leading-8 md:mt-10 mt-8 pr-20 text-gray-700"> 
-                        My favourite branch of mathematics is calculus. Without calculus, human beings were not able to quantify the world around us.
+                        My favourite branch of mathematics is calculus. Before calculus, human beings were not able to quantify the world around us.
                         Calculus enpowers us to understand the nature of changes, getting rid of the dull assumptions that everything are constant. </p>
                 </div>
             </div>

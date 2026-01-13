@@ -17,8 +17,8 @@ const LeetcodeSection = () => {
                             <div className="absolute top-3 left-3 bg-white md:w-[30px] md:h-[30px] w-[20px] h-[20px]"></div>
                         </div>
 
-                        <p className="md:hidden lg:text-lg text-gray-700 tracking-[1px] md:text-base text-sm"> Algorithmic challenges honed my problem-solving and deepened my computer science knowledge. </p>
-                        <p className="md:block lg:text-lg text-gray-700 hidden tracking-[1px]"> 
+                        <p className="md:hidden lg:text-lg text-gray-700 md:text-base text-sm"> Algorithmic challenges honed my problem-solving and deepened my computer science knowledge. </p>
+                        <p className="md:block lg:text-lg text-gray-700 hidden"> 
                             My journey through algorithmic challenges has strengthened my problem-solving skills and deepened my understanding of computer science fundamentals.
                         </p>
 
@@ -35,9 +35,9 @@ const LeetcodeSection = () => {
 
                     {/* Difficulty Level */}
                     <div className="flex bg-gray-100 rounded-xl w-full md:h-10 h-8 md:text-md text-sm md:my-10 my-5">
-                        <div className="flex justify-start items-center w-1/3 text-[#849F5D] px-3"> Easy </div>
+                        <div className="flex justify-start items-center w-1/3 text-[#849F5D] pl-3"> Easy </div>
                         <div className="flex justify-start items-center w-1/2 text-[#ADB145]"> Medium </div>
-                        <div className="flex justify-start items-center w-1/6 text-[#BA4C3D] px-15"> Hard </div>
+                        <div className="flex justify-start items-center w-1/6 text-[#BA4C3D] pr-3"> Hard </div>
                     </div>
 
                     {/* React RC */}

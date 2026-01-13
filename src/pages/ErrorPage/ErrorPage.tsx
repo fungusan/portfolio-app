@@ -19,7 +19,7 @@ const ErrorPage = ({
                 {/* Error Message */}
                 <div className="flex flex-col lg:col-start-1 lg:col-span-3 lg:gap-10 gap-4 items-center lg:border-none border-t border-b border-[#BA4C3D] py-2">
                     <p className="lg:inline hidden text-8xl lg:font-light text-[#BA4C3D]/90"> {errorCode} </p>
-                    <h1 className="md:text-5xl lg:text-center text-4xl text-[#BA4C3D]/90"> {message} </h1>
+                    <h1 className="md:text-5xl lg:text-center text-3xl text-[#BA4C3D]/90"> {message} </h1>
                     <p className="lg:hidden md:text-4xl text-2xl text-[#BA4C3D]"> {errorCode} </p>
                 </div>
 

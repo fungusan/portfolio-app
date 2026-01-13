@@ -80,9 +80,9 @@ const TimeLine = () => {
           />
 
           <TimeLineItem 
-              title='2025 Jun'
-              subtitle='Party Game Project'
-              content='A project for learning backend dev. A main party game consists of many mini games'
+              title='2025 Sept'
+              subtitle='Home Safety Game Project'
+              content='A project for my final year project, aiming to raise safety awareness through interactive game'
               align="left"
               titleSize='lg:text-2xl text-lg'
               subtitleSize='lg:text-xl text-base'

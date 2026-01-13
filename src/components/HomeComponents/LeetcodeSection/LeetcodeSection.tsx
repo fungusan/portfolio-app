@@ -30,24 +30,24 @@ const LeetcodeSection = () => {
                 
                 {/* Leetcode Data */}
                 <div className="md:col-start-2 md:col-end-2 md:ml-10 flex flex-col justify-center items-start space-y-2">
-                    <h1 className="md:text-6xl text-5xl text-gray-900 font-light"> 431 </h1>
+                    <h1 className="md:text-6xl text-5xl text-gray-900 font-light"> 500+ </h1>
                     <p className="md:text-2xl text-xl text-gray-700"> Leetcode problems solved </p>
 
                     {/* Difficulty Level */}
                     <div className="flex bg-gray-100 rounded-xl w-full md:h-10 h-8 md:text-md text-sm md:my-10 my-5">
-                        <div className="flex justify-start items-center w-1/3 text-[#849F5D] px-4 border-r"> Easy </div>
-                        <div className="flex justify-start items-center w-1/2 text-[#ADB145] px-4 border-r"> Medium </div>
-                        <div className="flex justify-start items-center w-1/6 text-[#BA4C3D] px-4"> Hard </div>
+                        <div className="flex justify-start items-center w-1/3 text-[#849F5D] px-3"> Easy </div>
+                        <div className="flex justify-start items-center w-1/2 text-[#ADB145]"> Medium </div>
+                        <div className="flex justify-start items-center w-1/6 text-[#BA4C3D] px-15"> Hard </div>
                     </div>
 
                     {/* React RC */}
                     <div className="md:flex flex-col w-full hidden">
                         <h1 className="text-2xl md:mt-10 my-10"> Recent AC </h1>
-                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> Soup Servings </div>
-                        <div className="flex justify-start items-center h-20 bg-gray-100 px-4 rounded-lg"> Maximum 69 Number </div>
-                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> Power of Two </div>
-                        <div className="flex justify-start items-center h-20 bg-gray-100 px-4 rounded-lg"> Path Sum </div>
-                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> K Closest Points to Origin</div>
+                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> Relative Ranks </div>
+                        <div className="flex justify-start items-center h-20 bg-gray-100 px-4 rounded-lg"> Article Views I </div>
+                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> Minimum Time Visiting All Points </div>
+                        <div className="flex justify-start items-center h-20 bg-gray-100 px-4 rounded-lg"> Maximal Rectangle </div>
+                        <div className="flex justify-start items-center h-20 px-4 rounded-lg"> Minimum ASCII Delete Sum for Two String</div>
                     </div>
 
                     {/* Profile Button sm */}

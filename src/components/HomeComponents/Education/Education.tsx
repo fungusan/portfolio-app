@@ -13,9 +13,10 @@ const Education = () => {
                     <h1 className="lg:text-6xl md:text-5xl text-4xl font-light tracking-wider leading-[75px]"> Education 
                         <span className="lg:block hidden"> & Skills </span> </h1>
 
-                    <a href="#" target="_blank" rel="noopener noreferrer" 
+                    {/* <a href="#" target="_blank" rel="noopener noreferrer" 
                         className="bg-[#849F5D] text-white flex items-center justify-start gap-2
                             rounded-xl hover:bg-[#758c54] transition-color duration-100 cursor-pointer lg:text-lg text-base lg:py-3 py-3 px-4 lg:mt-2">
+                    
                         <span className="">
                             <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
@@ -30,6 +31,7 @@ const Education = () => {
                         </span>
                         Resume
                     </a>
+                    */}
                 </div>
 
                 <img src={bookImage} 

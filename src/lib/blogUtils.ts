@@ -7,6 +7,7 @@ import remarkRehype from 'remark-rehype';
 import rehypeKatex from 'rehype-katex';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
+// import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 
 const blogModules = import.meta.glob('/src/blogs/*.md', { query: '?raw', import: 'default', eager: true });
 
@@ -86,7 +87,7 @@ const processMarkdown = async (content: string) => {
       .use(remarkParse)
       .use(remarkGfm)
       .use(remarkMath)
-      .use(remarkRehype)
+      .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeKatex)
       .use(rehypeHighlight, {
         ignoreMissing: true,
@@ -96,7 +97,7 @@ const processMarkdown = async (content: string) => {
           shell: ['bash', 'sh', 'zsh'],
         },
       })
-      .use(rehypeStringify)
+      .use(rehypeStringify, { allowDangerousHtml: true })
       .process(content);
       
     return result.toString();

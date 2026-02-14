@@ -69,7 +69,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ meta, children }) => {
             <div className="mt-6 pt-8 border-t border-gray-200">
                 <a 
                     href="/blogs" 
-                    className="md:pl-15 pl-10 md:text-base text-sm inline-flex items-center text-gray-500 hover:text-gray-900 transition-colors"
+                    className="md:pl-15 pl-10 lg:text-lg md:text-base text-sm inline-flex items-center text-gray-500 hover:text-gray-900 transition-colors"
                 >
                     ← Back to all blogs
                 </a>

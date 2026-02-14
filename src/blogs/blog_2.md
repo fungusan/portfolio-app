@@ -1,7 +1,7 @@
 ---
 imagePath: "/blog_images/blog_2/main.jpg"
-imageName: "Blog 2 - Leetcode 808"
-title: "Understanding DP With Leetcode 808"
+imageName: "Blog 2 - LeetCode 808"
+title: "Understanding DP With LeetCode 808"
 date: "Aug 28, 2025"
 excerpt: "Dynamic programming (DP) can be challenging for many. Let's dive into a great LeetCode example to break it down together!"
 tags: ["Maths", "Algorithm"]
@@ -9,7 +9,7 @@ tags: ["Maths", "Algorithm"]
 ## Introduction
 The heart of computer science lies on its algorithms. They are the foundation for all kinds of applications. While in practice we seldom write them from scratch, understanding their inner workings and knowing when to apply them is critical. On top of that, solving alorithm problems is a fun and rewarding exercise in your free time!
 
-As a problem solving enthusiast who has solved over 400 Leetcode problems, I'm confident in sharing my experience and walking you through some interesting problems, so that you can be one to solve them on your own.
+As a problem solving enthusiast who has solved over 400 LeetCode problems, I'm confident in sharing my experience and walking you through some interesting problems, so that you can be one to solve them on your own.
 
 In this blog, we'll tackle **LeetCode 808 - Soup Servings**, a medium-difficulty problem solved efficiently using dynamic programming (DP).
 
@@ -59,7 +59,7 @@ int Fibonacci(int n) {
 ```
 
 ## Problem & Solution
-Now that we've laid the groundwork, let's solve the problem. For the complete problem description, please refer to the official LeetCode page by clicking [here](https://leetcode.com/problems/soup-servings/description/).
+Now that we've laid the groundwork, let's solve the problem. For the complete problem description, please refer to the official LeetCode page by clicking [here](https://LeetCode.com/problems/soup-servings/description/).
 
 Basically, the problem is asking:
 

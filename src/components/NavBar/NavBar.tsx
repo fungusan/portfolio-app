@@ -18,7 +18,7 @@ const NavBar = () => {
                     {/* Brand Icon */}
                     <div className="flex items-center gap-3">
                         <div className="bg-[#849F5D]/90 size-4"></div>
-                        <p className="font-serif text-2xl font-thin"> Fungusan </p>
+                        <p className="font-serif text-xl md:text-2xl font-thin"> Fungusan </p>
                     </div>
                 </div>
 

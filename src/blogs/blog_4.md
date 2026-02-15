@@ -2,7 +2,7 @@
 imagePath: "/blog_images/blog_4/main.jpg"
 imageName: "Blog 4 - LeetCode 2976"
 title: "DP Revisited: An Intro to Floyd–Warshall Algorithm"
-date: "Feb 13, 2026"
+date: "Feb 15, 2026"
 excerpt: "This time, join me to discover an application of DP in graph theory called Floyd–Warshall algorithm, with an interesting LeetCode problem."
 tags: ["Algorithm"]
 ---
@@ -87,7 +87,9 @@ This is where the problem starts to get interesting. Instead of thinking it as a
 - for each $i \in \{0, \dots, , n - 1\}$, add a directed edge (`original[i]`, `changed[i]`), with weight `cost[i]`
 It will make more sense looking at a concrete example:
 
-<img src="/blog_images/blog_4/graph.png" alt="Blog 4 - Graph" style="max-width: 30%; height: auto;" class="mx-auto" />
+<img src="/blog_images/blog_4/graph.png" alt="Blog 4 - Graph" class="img hide-on-md" style="max-width: 80% !important; height: auto;" />
+
+<img src="/blog_images/blog_4/graph.png" alt="Blog 4 - Graph Large" class="img hide-on-sm" />
 
 I'll explain this step by step. First, for easier implementation and formulation, it's often more convenient to work with indices rather than the characters themselves. The graph will have at most 26 vertices, because we're only dealing with lowercase letters. Here, we can think of each transformation as an edge from one character vertex to another, with the edge weights perfectly capturing the transformation costs.
 
@@ -212,12 +214,12 @@ $$
     d(u, t) = \min_{(u,v) \in E} \{d(v, t) + w(u, v)\}
 $$
 
-<img src="/blog_images/blog_4/graph_2.png" alt="Blog 4 - Graph 2" style="max-width: 40%; height: auto;" class="mx-auto" />
+<img src="/blog_images/blog_4/graph_2.png" alt="Blog 4 - Graph 2" class="img" />
 
 where $d(u, t)$ is the shortest distance from vertex $u$ to vertex $t$, $w(u, v)$ is the edge weight.
 In plain English, to find the shortest path from $u$ to $t$, we will consider all possible outgoing edges $(u, v)$, plus shortest paths from $v$ to $t$. How do you know those shortest paths? You just apply the exact same logic recursively. This process propagates until it reaches a vertex that has a direct edge to $t$. At that point, the shortest path is simply the weight of that edge (with some subtleties).
 
-<img src="/blog_images/blog_4/graph_5.png" alt="Blog 4 - Graph 5" style="max-width: 40%; height: auto;" class="mx-auto" />
+<img src="/blog_images/blog_4/graph_5.png" alt="Blog 4 - Graph 5" class="img" />
 
 The same idea applies when we think about path-to-path construction. Suppose we consider paths that pass through a set of intermediate nodes (as shown on the diagram), and we also have the optimal subpaths from $i$ to $k_p$ and $k_p$ to $j$ for $p \in \{1, \dots, n\}$. To construct the full path to $j$, we just simply consider all the possible pairings through different intermediate nodes $k_p$. How do you know those shortest subpaths? Similarly, you apply the same logic, but with smaller subproblems. For the formal recursive definition:
 
@@ -255,9 +257,14 @@ You might find this familiar, because that's exactly what we've derived previous
 
 Again, this is a bit abstract, let's walk through an example (huge credit to wiki page!):
 
-<img src="/blog_images/blog_4/graph_6.png" alt="Blog 4 - Graph 6" style="max-width: 75%; height: auto;" class="mx-auto" />
+<img src="/blog_images/blog_4/graph_6.png" alt="Blog 4 - Graph 6" class="img hide-on-md" style="max-width: 100% !important; height: auto;" />
 
-<img src="/blog_images/blog_4/graph_7.png" alt="Blog 4 - Graph 7" style="max-width: 75%; height: auto;" class="mx-auto" />
+<img src="/blog_images/blog_4/graph_6_lg.png" alt="Blog 4 - Graph 6 Large" class="img hide-on-sm" style="max-width: 85% !important; height: auto;" />
+
+<img src="/blog_images/blog_4/graph_7.png" alt="Blog 4 - Graph 7" class="img hide-on-md" style="max-width: 100% !important; height: auto;" />
+
+<img src="/blog_images/blog_4/graph_7_lg.png" alt="Blog 4 - Graph 7 Large" class="img hide-on-sm" style="max-width: 85% !important; height: auto;" />
+
 
 - At $k = 0$, we initialize the DP matrix with the graph topology, i.e. relax direct edges.
 - At $k = 1$, we consider pairing via vertex 1. In this case, no better paths are found since no vertice can go to vertex 1.
@@ -311,3 +318,5 @@ To really absord knowledge, it's best to spend a little time to ponder on the to
 1. Despite being wasting and inefficient, running the "disordered" $i, j, k$ triple loop **multiple** times can actually converge to the correct shortest paths. Can you see why?
 
 2. There's another triple loop order will work. Can you see which?
+
+Side note: today's my birthday, hurray! Time spent on tuning the image sizes of this blog... Hope you enjoy!

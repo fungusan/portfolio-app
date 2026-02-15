@@ -11,11 +11,25 @@
 }
 
 .markdown {
-    @apply prose prose-sm md:prose-base lg:prose-lg max-w-none prose-pre:bg-slate-100 prose-pre:text-gray-100 prose-img:mx-auto lg:prose-img:max-w-[60%];
+    @apply prose prose-sm md:prose-base lg:prose-lg max-w-none;
+    @apply prose-pre:bg-slate-100 prose-pre:text-gray-100;
 
     /* Remove backticks from inline code */
     & :not(pre) > code::before,
     & :not(pre) > code::after {
         content: none;
+    }
+
+    /* Responsive image styling */
+    & img {
+        @apply mx-auto h-auto max-w-full sm:max-w-[90%] md:max-w-[55%] lg:max-w-[40%];
+    }
+
+    & .hide-on-sm {
+        @apply hidden md:block;
+    }
+
+    & .hide-on-md {
+        @apply block md:hidden;
     }
 }

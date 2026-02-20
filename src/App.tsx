@@ -5,6 +5,7 @@ import Blogs from './pages/Blogs/Blogs'
 import BlogPost from './pages/BlogPost/BlogPost';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Contact from './pages/Contact/Contact';
+import Album from './pages/Album/Album';
 
 const routes = (
   <Router>
@@ -13,6 +14,7 @@ const routes = (
       <Route path='/blogs' element={<Blogs />} />
       <Route path='/blogs/:slug' element={<BlogPost />} />
       <Route path='/contact' element={<Contact />} />
+      <Route path='/album' element={<Album />} />
       <Route path='/*' element={<ErrorPage errorCode="404" message="PAGE NOT FOUND..." />} />
     </Routes>
   </Router>

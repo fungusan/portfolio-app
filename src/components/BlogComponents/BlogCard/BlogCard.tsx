@@ -30,8 +30,11 @@ const BlogCard = ({
                 <div className="flex flex-col justify-start space-y-4 px-2 md:pb-1 md:border-slate-100 md:border-b">
                     {/* Tags lg */}
                     <div className="md:flex justify-start gap-3 hidden">
-                        {tags.map( (tag) => (
-                            <div className="bg-[#849F5D] px-2 py-1.5 rounded-xl text-white text-[10px] hover:bg-[#758c54]">
+                        {tags.map( (tag, index) => (
+                            <div 
+                                key={index}
+                                className="bg-[#849F5D] px-2 py-1.5 rounded-xl text-white text-[10px] hover:bg-[#758c54]"
+                            >
                                 {tag}
                             </div>
                         ))}

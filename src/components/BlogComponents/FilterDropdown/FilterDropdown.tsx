@@ -35,29 +35,31 @@ const FilterDropdown = ({
     };
 
     // Custom content renderer to show selected tags in the dropdown button
-    const customContentRenderer = ({ state }: any) => {
+    const customContentRenderer = ({ state, methods }: any) => {
         return (
-        <div className="flex items-center justify-between w-full">
-            <div className="flex items-center">
-                <span className="text-sm"> Tags </span>
-                {state.values.length > 0 && (
-                    <span className="ml-3 bg-[#849F5D]/90 text-white text-xs font-semibold w-5 h-5 rounded-full flex justify-center items-center">
-                        {state.values.length}
-                    </span>
-                )}
-            </div>
-
-            <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                strokeWidth={1.5} 
-                stroke="currentColor" 
-                className={`size-5 text-gray-500 transition-transform duration-200 ${isDropdownOpen && 'rotate-180'}`}
+            <div 
+                className="flex items-center justify-between w-full"
+                onClick={() => methods.dropDown('toggle')}
+            >
+                <div className="flex items-center">
+                    <span className="text-sm"> Tags </span>
+                    {state.values.length > 0 && (
+                        <span className="ml-3 bg-[#849F5D]/90 text-white text-xs font-semibold w-5 h-5 rounded-full flex justify-center items-center">
+                            {state.values.length}
+                        </span>
+                    )}
+                </div>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className={`size-5 text-gray-500 transition-transform duration-200 ${isDropdownOpen && 'rotate-180'}`}
                 >
                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-            </svg>
-        </div>
+                </svg>
+            </div>
         );
     };
 
@@ -71,7 +73,7 @@ const FilterDropdown = ({
                 type="checkbox" 
                 checked={methods.isSelected(item)} 
                 onChange={() => {}} 
-                className="ml-1 mr-3 form-checkbox rounded size-3.5 text-blue-600"
+                className="ml-1 mr-3 form-checkbox rounded-md size-4 text-[#849F5D] border-gray-300 focus:ring-[#849F5D] focus:ring-offset-0 transition-colors"
             />
             <span className="text-sm">
                 {item.label}

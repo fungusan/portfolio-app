@@ -1,30 +1,77 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import Footer from '../../components/Footer/Footer'
 import AlbumnMenu from '../../components/AlbumComponents/AlbumMenu'
 import ImageGrid from '../../components/AlbumComponents/ImageGrid'
 import AuthModal from '../../components/AuthModal/AuthModal'
+import LoadingPage from '../BlogPost/LoadingPage'
+import ErrorPage from '../ErrorPage/ErrorPage'
+import { isAuthenticated } from '../../lib/authUtils'
+import { fetchAlbums, fetchImages, handleAuth } from '../../lib/albumUtils'
+import { type AlbumData, type ImageData } from '../../lib/albumType'
 
 const Album = () => {
-    const albumTitles: string[] = [
-        'Public', 'Days', 'Portrait', 'View'
-    ];
+    const [albums, setAlbums] = useState<AlbumData[]>([]);
+    const [albumTitles, setAlbumTitles] = useState<string[]>([]);
+    const [images, setImages] = useState<ImageData[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+    const [isSuccess, setIsSuccess] = useState<boolean>(true);
 
     // Set the active album
-    const [activeTitle, setActiveTitle] = useState<string>('Public');
+    const [activeTitle, setActiveTitle] = useState<string>("");
+
+    // Fetch album titles
+    useEffect(() => {
+        const loadAlbums = async () => {
+            try {
+                const fetchedAlbums = await fetchAlbums();
+                setAlbums(albums);
+            
+                const titles = fetchedAlbums.map((album: { albumTitle: string }) => album.albumTitle);
+                setAlbumTitles(titles);
+
+                if (titles.length > 0) setActiveTitle(titles[0]); // Set first as active by default
+            } catch (err) {
+                console.error('Fetch error details:', err);
+                setError((err as Error).message);
+            } finally {
+                setLoading(false);
+            }
+        };
+        loadAlbums();
+    }, []);
+
+    // Internal helper to load images
+    const loadImages = async (title: string) => {
+        try {
+            const fetchedImages = await fetchImages(title);
+            setImages(fetchedImages); // Update state (append for pagination if needed)
+            console.log('Fetched images:', fetchedImages);
+        } catch (err) {
+        if ((err as Error).message === 'Unauthorized') {
+            setIsModalOpen(true); // Re-trigger modal if token invalid/expired
+        } else {
+            // Handle other errors
+            setError((err as Error).message);
+        }
+        }
+    };
 
     // Control modal open/close
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const onTitleClick = (title: string) => {
-        // Public album is accessible without auth
-        if (title === 'Public') {
+        // Public albums are accessible without auth
+        const selectedAlbum = albums.find(alb => alb.albumTitle === title);
+        const isProtected : boolean = selectedAlbum?.isProtected ?? true;
+
+        if (!isProtected && isAuthenticated()) {
             setActiveTitle(title);
-            console.log(title + " clicked");
+            loadImages(title);
         }
         else {
             setIsModalOpen(true);
-            // TODO: Handle auth, close the modal
         }
     }
 
@@ -32,40 +79,23 @@ const Album = () => {
         setIsModalOpen(false);
     }
 
-    const onModalSubmit = (name: string, password: string) => {
-        console.log("The user name is " + name);
+    const onModalSubmit = async (userName: string, password: string) => {
+        try {
+            await handleAuth(userName,password);
+            setIsSuccess(true);
+            setIsModalOpen(false);
 
-        // For security!!! Must remove it later
-        console.log("The user password is " + password);
-        setIsModalOpen(false);
+            if (activeTitle) {
+                loadImages(activeTitle);
+            }
+        } catch (error) {
+            setIsSuccess(false);
+            console.error('Fetch error:', error);
+        }
     }
 
-    const images = [
-        {
-            imagePath: "/blog_images/blog_4/graph_7.png",
-            imageTitle: "Photoshoot in Osaka, Japan",
-            imageDescription: "This is taken in Harry Potter castle, Universal Studio",
-            imageDate: "Jun 05, 2024"
-        },
-        {
-            imagePath: "/blog_images/blog_4/graph_6.png",
-            imageTitle: "Photoshoot in Osaka, Japan",
-            imageDescription: "This is taken in Harry Potter castle, Universal Studio",
-            imageDate: "Jun 05, 2024"
-        },
-        {
-            imagePath: "/blog_images/blog_4/graph_3.png",
-            imageTitle: "Photoshoot in Osaka, Japan",
-            imageDescription: "This is taken in Harry Potter castle, Universal Studio",
-            imageDate: "Jun 05, 2024"
-        },
-        {
-            imagePath: "/blog_images/blog_4/graph_2.png",
-            imageTitle: "Photoshoot in Osaka, Japan",
-            imageDescription: "This is taken in Harry Potter castle, Universal Studio",
-            imageDate: "Jun 05, 2024"
-        },
-    ];
+    if (loading) return <LoadingPage />
+    if (error) return <ErrorPage errorCode="500" message="INTERNAL ERROR.." />
 
     return (
         <>
@@ -74,7 +104,8 @@ const Album = () => {
             {/* Auth Modal */}
             {
                 isModalOpen && 
-                <AuthModal 
+                <AuthModal
+                    isSuccess={isSuccess}
                     onClose={onModalClose} 
                     onSubmit={onModalSubmit} 
                 />
@@ -110,4 +141,4 @@ const Album = () => {
     )
 }
 
-export default Album
+export default Album;

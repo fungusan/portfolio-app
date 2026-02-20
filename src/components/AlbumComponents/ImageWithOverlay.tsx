@@ -1,30 +1,12 @@
 import React, { useState, useEffect } from 'react';
-
-export class ImageData {
-    imagePath: string;
-    imageTitle: string;
-    imageDescription: string;
-    imageDate: string;
-
-    constructor(
-        imagePath: string,
-        imageTitle: string,
-        imageDescription: string,
-        imageDate: string
-    ) {
-        this.imagePath = imagePath;
-        this.imageTitle = imageTitle;
-        this.imageDescription = imageDescription;
-        this.imageDate = imageDate;
-    }
-}
+import { type ImageData } from '../../lib/albumType'
 
 interface ImageWithOverlayProps {
     imageData: ImageData;
 }
 
 const ImageWithOverlay : React.FC<ImageWithOverlayProps> = ({ imageData }) => {
-    const { imagePath, imageTitle, imageDescription, imageDate } = imageData;
+    const { imageId, imagePath, imageTitle, imageDescription, imageDate } = imageData;
 
     const [showOverlay, setShowOverlay] = useState(false);
 

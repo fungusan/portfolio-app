@@ -1,5 +1,6 @@
 import React from 'react'
-import ImageWithOverlay, {type ImageData} from './ImageWithOverlay'
+import { type ImageData } from '../../lib/albumType'
+import ImageWithOverlay from './ImageWithOverlay'
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 interface ImageGridProps {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import Footer from '../../components/Footer/Footer'
 import SearchBar from '../../components/BlogComponents/SearchBar/SearchBar'
@@ -6,6 +6,8 @@ import FilterDropdown from '../../components/BlogComponents/FilterDropdown/Filte
 import BlogCard from '../../components/BlogComponents/BlogCard/BlogCard'
 import { type BlogData, getBlogData } from '../../lib/blogUtils'
 import Pagination from '../../components/BlogComponents/Pagination/Pagination'
+import LoadingPage from '../BlogPost/LoadingPage'
+import ErrorPage from '../ErrorPage/ErrorPage'
 
 const Blogs = () => {
     const [searchQuery, setsearchQuery] = useState<string>("");
@@ -16,14 +18,36 @@ const Blogs = () => {
         'Maths', 'Algorithm', 'Philosophy'
     ];
 
-    const blogs = getBlogData();
-    const [showBlogs, setShowBlogs] = useState<BlogData[]>(blogs);
+    const [blogs, setBlogs] = useState<BlogData[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
 
-    const handleSearch = () => {
-        setShowBlogs(blogs.filter( 
-            (blog) => blog.meta.title.toLowerCase().includes(searchQuery.trim().toLowerCase())
-        ))
-    }
+    // Fetch blog metadata
+    useEffect(() => {
+        try {
+            const data = getBlogData();
+            setBlogs(data);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Failed to load blogs');
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    // Updates automatically when blogs or filters change
+    const filteredBlogs = useMemo(() => {
+        return blogs.filter(blog => {
+            const matchesSearch = searchQuery.trim() === '' ||
+                blog.meta.title.toLowerCase().includes(searchQuery.trim().toLowerCase());
+
+            const matchesTags = selectedTags.length === 0 ||
+                selectedTags.some(tag => blog.meta.tags.includes(tag));
+
+            return matchesSearch && matchesTags;
+        });
+    }, [blogs, searchQuery, selectedTags]);
+
+    const handleSearch = () => { }
 
     const handleKeyEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
@@ -33,15 +57,10 @@ const Blogs = () => {
 
     const handleTagChange = (tags: string[]) => {
         setSelectedTags(tags);
-
-        setShowBlogs(blogs.filter(
-            (blog) => tags.length === 0 || tags.some((selectedTag) => blog.meta.tags.includes(selectedTag))
-        ));
     };
   
     const onClearSearch = () => {
         setsearchQuery("");
-        setShowBlogs(blogs);
     }
 
     // Pagination Logic
@@ -50,7 +69,10 @@ const Blogs = () => {
 
     const lastPostIndex = currentPage * blogsPerPage;
     const firstPostIndex = lastPostIndex - blogsPerPage;
-    const currentBlogs = showBlogs.slice(firstPostIndex, lastPostIndex).reverse();
+    const currentBlogs = filteredBlogs.slice(firstPostIndex, lastPostIndex).reverse();
+
+    if (loading) return <LoadingPage />
+    if (error) return <ErrorPage errorCode="500" message="INTERNAL ERROR.." />
 
     return (
         <>
@@ -115,7 +137,7 @@ const Blogs = () => {
             </div>
 
             {/* No Result Messages */}
-            {showBlogs.length === 0 && (
+            {filteredBlogs.length === 0 && (
                 <div className="text-center py-12 flex flex-col items-center">
                     <span className="text-[#849F5D] text-6xl mb-2">
                         <svg 
@@ -137,7 +159,7 @@ const Blogs = () => {
 
             {/* Pagination System */}
             <Pagination
-                totalBlogs={showBlogs.length}
+                totalBlogs={filteredBlogs.length}
                 blogsPerPage={blogsPerPage}
                 setCurrentPage={setCurrentPage}
             />

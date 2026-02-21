@@ -45,11 +45,11 @@ const ImageWithOverlay : React.FC<ImageWithOverlayProps> = ({ imageData }) => {
                     {/* Overlay Details */}
                     <div className="absolute bottom-0 left-0 right-0 flex flex-col justify-end items-start md:p-5 p-2">
                         {/* Title and description – left aligned, stacked */}
-                        <h3 className="text-xl font-medium">{imageTitle}</h3>
-                        <p className="text-base mb-1">{imageDescription}</p>
+                        <h3 className="text-2xl font-medium">{imageTitle}</h3>
+                        <p className="text-lg mb-1">{imageDescription}</p>
                         
                         {/* Date – right aligned, at the bottom */}
-                        <p className="text-base self-end mt-auto">{imageDate}</p>
+                        <p className="text-lg self-end mt-auto">{imageDate}</p>
                     </div>
                 </div>
             </div>

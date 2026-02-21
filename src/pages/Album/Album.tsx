@@ -189,8 +189,8 @@ const Album = () => {
                 
                 {/* Title Section */}
                 <header className="col-start-3 col-end-18 md:space-y-5 space-y-2 lg:min-h-68 md:min-h-56 min-h-32 flex flex-col items-center justify-center">
-                    <h1 className="lg:text-6xl md:text-4xl text-3xl font-light text-center tracking-wide"> Photoshoots_ </h1>
-                    <p className="md:hidden text-sm text-gray-700 text-center font-light"> Sharing my best photographs </p>
+                    <h1 className="lg:text-6xl md:text-5xl text-4xl font-light text-center tracking-wide"> Photoshoots_ </h1>
+                    <p className="md:hidden text-gray-700 text-center font-light"> Sharing my best photographs </p>
                     <p className="md:block hidden lg:text-lg text-gray-700 lg:mx-75 mx-20 text-center font-light">
                         I am not a pro photographers, but what’s stopping me from sharing my best photographs?
                     </p>

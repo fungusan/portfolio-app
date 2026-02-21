@@ -4,7 +4,7 @@ import { setAccessToken, getAccessToken, removeAccessToken } from '../lib/authUt
 // Helper: Fetch albums (returns data, no state setting)
 export const fetchAlbums = async (): Promise<AlbumData[]> => {
     try {
-        const response = await fetch('http://localhost:3000/albums');
+        const response = await fetch('https://portfolio-backend.hungworkpublic.workers.dev/albums');
 
         if (!response.ok) {
             throw new Error(`Failed to fetch albums: ${response.status} ${response.statusText}`);
@@ -21,7 +21,7 @@ export const fetchAlbums = async (): Promise<AlbumData[]> => {
 export const fetchImages = async (albumTitle: string, offset: number = 0, limit: number = 10): Promise<ImageData[]> => {
     try {
         const token = getAccessToken();
-        const url = `http://localhost:3000/images?album=${encodeURIComponent(albumTitle)}&offset=${offset}&limit=${limit}`;
+        const url = `https://portfolio-backend.hungworkpublic.workers.dev/images?album=${encodeURIComponent(albumTitle)}&offset=${offset}&limit=${limit}`;
         const headers: HeadersInit = { 'Content-Type': 'application/json' };
 
         if (token) {
@@ -48,7 +48,7 @@ export const fetchImages = async (albumTitle: string, offset: number = 0, limit:
 // Helper: Handle authentication (returns token on success)
 export const handleAuth = async (userName: string, password: string): Promise<string> => {
     try {
-        const response = await fetch('http://localhost:3000/login', {
+        const response = await fetch('https://portfolio-backend.hungworkpublic.workers.dev/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userName, password })

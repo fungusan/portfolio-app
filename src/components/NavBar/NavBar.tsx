@@ -27,6 +27,7 @@ const NavBar = () => {
                     <div className="hidden md:flex gap-8">
                         <a href="/" className="text-sm lg:text-base font-light py-2 hover:text-gray-500 transition-colors duration-200">Home</a>
                         <a href="/blogs" className="text-sm lg:text-base font-light py-2 hover:text-gray-500 transition-colors duration-200">Blogs</a>
+                        <a href="/album" className="text-sm lg:text-base font-light py-2 hover:text-gray-500 transition-colors duration-200">Album</a>
                         <a href="/contact" className="text-sm lg:text-base font-light px-4 py-2 rounded-lg bg-transparent border border-gray-300 hover:bg-gray-100 transition-colors duration-200">
                             Contact
                         </a>

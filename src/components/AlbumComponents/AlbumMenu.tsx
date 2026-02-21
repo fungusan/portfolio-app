@@ -30,10 +30,10 @@ const AlbumMenu: React.FC<AlbumMenuProps> = ({ albumTitles, activeTitle, onTitle
                         {albumTitles.map((title, index) => (
                             <li
                                 key={index}
-                                className={`cursor-pointer transition-colors duration-200 font-light ${
+                                className={`cursor-pointer transition-colors duration-200 ${
                                     title === activeTitle
-                                        ? 'text-black font-bold underline'
-                                        : 'text-gray-500 hover:text-black'
+                                        ? 'text-black font-medium underline'
+                                        : 'text-gray-700 font-light hover:text-black'
                                     }`}
                                 onClick={() => onTitleClick(title)}
                             >

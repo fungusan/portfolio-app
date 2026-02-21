@@ -29,8 +29,9 @@ const ImageWithOverlay : React.FC<ImageWithOverlayProps> = ({ imageData }) => {
         <>
             <div className="relative group" onClick={handleToggleOverlay}>
                 <img 
-                    src={imagePath} 
-                    alt={imageTitle} 
+                    src={imagePath}
+                    alt={imageTitle}
+                    loading="lazy"
                     className="w-full h-auto"
                 />
 
@@ -42,10 +43,13 @@ const ImageWithOverlay : React.FC<ImageWithOverlayProps> = ({ imageData }) => {
                         }`}
                 >
                     {/* Overlay Details */}
-                    <div className="absolute left-0 bottom-0 flex flex-col items-start md:p-5 p-2">
-                        <h3 className="md:text-xl text-lg font-medium">{imageTitle}</h3>
-                        <p className="md:text-base text-sm">{imageDescription}</p>
-                        <p className="md:text-base md:mt-5 text-sm self-end">{imageDate}</p>
+                    <div className="absolute bottom-0 left-0 right-0 flex flex-col justify-end items-start md:p-5 p-2">
+                        {/* Title and description – left aligned, stacked */}
+                        <h3 className="text-xl font-medium">{imageTitle}</h3>
+                        <p className="text-base mb-1">{imageDescription}</p>
+                        
+                        {/* Date – right aligned, at the bottom */}
+                        <p className="text-base self-end mt-auto">{imageDate}</p>
                     </div>
                 </div>
             </div>

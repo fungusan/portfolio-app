@@ -1,5 +1,5 @@
 import { type AlbumData, type ImageData } from '../lib/albumType'
-import { setAccessToken, getAccessToken } from '../lib/authUtils'
+import { setAccessToken, getAccessToken, removeAccessToken } from '../lib/authUtils'
 
 // Helper: Fetch albums (returns data, no state setting)
 export const fetchAlbums = async (): Promise<AlbumData[]> => {
@@ -31,6 +31,7 @@ export const fetchImages = async (albumTitle: string, offset: number = 0, limit:
         const response = await fetch(url, { headers });
         if (!response.ok) {
             if (response.status === 401) {
+                removeAccessToken();
                 throw new Error('Unauthorized'); // Specific error for auth handling
             }
             
